@@ -39,6 +39,35 @@
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
 
+    function yearSorter(inventor) {
+      if (inventor["year"] >= 1500 && inventor["year"] < 1600) return true; 
+    }
+
+    //Initial solution I made but more cumbersome so I refactored 
+
+    /* function questionOne(obj) {
+      let iterator = obj["year"].toString();
+      iterator = iterator.slice(0,2);
+      if (iterator === '15') {
+        return true;
+      }        
+      } */
+    
+
+    let quest = inventors.filter(yearSorter);
+
+    // Just having fun making my own filter function 
+
+    /* let filterArray = [];
+    function filterFunction(obj) {
+      for (i = 0; i < obj.length; i++) {
+        let iterator = obj[i]["year"].toString();
+        iterator = iterator.slice(0,2);
+        if (iterator === '15') {
+          filterArray.push(obj[i]);
+          }        
+      }
+    } */
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
 
