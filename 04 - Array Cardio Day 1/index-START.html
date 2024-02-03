@@ -81,6 +81,19 @@
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
 
+
+    // compareFn(a,b) return value a - b
+    // if > 0 sort a after b such that [b,a]
+    // if < 0 sort a before b such that [a,b]
+    // if === 0 keep original order of a and b
+    // thus default is ascending order
+    // if you want descending i.e. oldest to youngest here
+    // reverse subtraction of variables 
+    const descending = inventors.sort((firstInventor, secondInventor) => {
+      let comparison = secondInventor.year - firstInventor.year;
+      return comparison;
+    });
+
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
 
