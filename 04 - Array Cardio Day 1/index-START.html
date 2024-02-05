@@ -102,6 +102,21 @@
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
 
+    // We must provide an initial value for the reduce function for it to run
+    // through all values in your function as this is an array of objects.
+    // The reduce function has built in limitations which predispose it
+    // to the requirement of an initial value to work on an array of objects.
+    // If this was just a normal array of primitives than an initial value 
+    // would not be required but still could be used if you wanted to use it
+    // for a particular use case.
+
+    const initialValue = 0;
+
+    const questionFour = inventors.reduce((accumulator, currentValue) => {
+      currentValue = currentValue.passed - currentValue.year;
+      return accumulator += currentValue;
+    },initialValue)
+
     // 5. Sort the inventors by years lived
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
