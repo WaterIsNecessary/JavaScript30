@@ -74,7 +74,7 @@
     function firstLast(inventor) {
       let fullName = `${inventor["first"]} ${inventor["last"]}`;
       return fullName;
-    }
+    };
 
     const questionTwo = inventors.map(firstLast);
 
@@ -92,12 +92,12 @@
     const descending = inventors.sort((firstInventor, secondInventor) => {
       let comparison = secondInventor.year - firstInventor.year;
       return comparison;
-    })
+    });
 
     const ascending = inventors.sort((firstInventor, secondInventor) => {
       let comparison = firstInventor.year - secondInventor.year;
       return comparison;
-    })
+    });
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
@@ -113,14 +113,30 @@
     const initialValue = 0;
 
     const questionFour = inventors.reduce((accumulator, currentValue) => {
-      currentValue = currentValue.passed - currentValue.year;
+      currentValue = currentValue.passed - currentValue.year;                          
       return accumulator += currentValue;
-    },initialValue)
+    },initialValue);
 
     // 5. Sort the inventors by years lived
 
+    for (i = 0; i < inventors.length; i++) {
+      inventors[i]["years lived"] = inventors[i]["passed"] - inventors[i]["year"];
+    };
+
+    const ascendingYearsLived = inventors.sort((firstInventor, secondInventor) => {
+      let comparison = firstInventor["years lived"] - secondInventor["years lived"];
+      return comparison;
+    });
+
+    const descendingYearsLived = inventors.sort((firstInventor, secondInventor) => {
+      let comparison = secondInventor["years lived"] - firstInventor["years lived"];
+      return comparison;
+    });
+    
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+
+    
 
 
     // 7. sort Exercise
