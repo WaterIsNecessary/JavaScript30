@@ -119,7 +119,9 @@
 
     // 5. Sort the inventors by years lived
 
-    for (i = 0; i < inventors.length; i++) {
+    // First method
+
+    /* for (i = 0; i < inventors.length; i++) {
       inventors[i]["years lived"] = inventors[i]["passed"] - inventors[i]["year"];
     };
 
@@ -131,20 +133,114 @@
     const descendingYearsLived = inventors.sort((firstInventor, secondInventor) => {
       let comparison = secondInventor["years lived"] - firstInventor["years lived"];
       return comparison;
+    }); */
+
+    // Second Method 
+
+/*     const secondMethodYearsLivedAscending = inventors.sort((firstPerson,secondPerson)=> {
+      firstPersonCalculation = firstPerson.passed - firstPerson.year;
+      secondPersonCalculation = secondPerson.passed - secondPerson.year;
+      return firstPersonCalculation > secondPersonCalculation ? 1 : -1; 
     });
+
+    console.table(secondMethodYearsLivedAscending); */
+
+    const secondMethodYearsLivedDescending = inventors.sort((firstPerson,secondPerson)=> {
+      firstPersonCalculation = firstPerson.passed - firstPerson.year;
+      secondPersonCalculation = secondPerson.passed - secondPerson.year;
+      return firstPersonCalculation > secondPersonCalculation ? -1 : 1;
+    });
+
+    console.table(secondMethodYearsLivedDescending);
     
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
+    // Carry out this code in the console window of wikipedia page not here
+
+/*     const container = document.querySelector('.mw-category');
+    const entries = Array.from(container.querySelectorAll('li'));
     
+    const list = entires.map((index) => {
+      return index.textContent;
+    });
+
+    const filteredList = list.slice(7, list.length);
+
+    const de = filteredList.filter((index) => {
+      return index.includes('de');
+    }); */
+
 
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
 
+
+    const surnamePeople = people.sort();
+
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+
+    // First attempt very long winded
+
+    /* const lastQuestion = {};
+
+    const initialValueData = 0;
+
+    const cars = data.reduce((accumulator, currentValue) => {
+      if (currentValue === 'car') {        
+        return accumulator += 1;
+      } else return accumulator;
+    },initialValueData);
+    lastQuestion['cars'] = cars;
+
+    const trucks = data.reduce((accumulator, currentValue) => {
+      if (currentValue === 'truck') {
+        return accumulator += 1;
+      } else return accumulator;
+    },initialValueData);
+    lastQuestion['trucks'] = trucks;
+
+    const bikes = data.reduce((accumulator, currentValue) => {
+      if (currentValue === 'bike') {
+        return accumulator += 1;
+      } else return accumulator;
+    },initialValueData);
+    lastQuestion['bikes'] = bikes;
+
+    const walks = data.reduce((accumulator, currentValue) => {
+      if (currentValue === 'walk') {
+        return accumulator += 1;
+      } else return accumulator;
+    },initialValueData);
+    lastQuestion['walks'] = walks;
+
+    const vans = data.reduce((accumulator, currentValue) => {
+      if (currentValue === 'van') {
+        return accumulator += 1;
+      } else return accumulator;
+    },initialValueData);
+    lastQuestion['vans'] = vans;
+ */
+
+ // Second attempt much shorter
+
+ // Remember, accumulator is a separate thing from the array from which
+ // currentValue is taken from IF the initialvalue is supplied. If not
+ // accumulator starts at index[0] and currentValue starts at index[1].
+ // If it is a separate entity as seen in this example, just remember to
+ // return it as you add to it(/change it) as you go along.
+
+  const lastQuestion = data.reduce((accumulator, currentValue) => {
+    if (!accumulator[currentValue]) {
+      accumulator[currentValue] = 1;
+    } else {
+      accumulator[currentValue]++;
+    }
+    return accumulator;
+  },{});
 
   </script>
 </body>
