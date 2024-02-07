@@ -29,6 +29,25 @@
     // Array.prototype.some() // is at least one person 19 or older?
     // Array.prototype.every() // is everyone 19 or older?
 
+    // Two methods to achieve Array.prototype.some() answer
+
+    let questionOneA = (element,index,array) => 
+      (new Date()).getFullYear() - array[index]['year'] >= 19;
+    
+    let questionOneB = (element) =>
+      (new Date()).getFullYear() - element['year'] >= 19;
+
+    console.log(people.some(questionOneA));
+    
+    console.log(people.some(questionOneB));
+
+    // part two
+
+    console.log(people.every(questionOneA));
+
+    console.log(people.every(questionOneB));
+
+
     // Array.prototype.find()
     // Find is like filter, but instead returns just the one you are looking for
     // find the comment with the ID of 823423
