@@ -52,9 +52,41 @@
     // Find is like filter, but instead returns just the one you are looking for
     // find the comment with the ID of 823423
 
+    let questionTwoA = comments.find(element => 
+      element['id'] === 823423
+    );
+
+    console.log(questionTwoA);
+
     // Array.prototype.findIndex()
     // Find the comment with this ID
+
+
     // delete the comment with the ID of 823423
+
+    const comment = comments.findIndex(element =>
+      element['id'] === 823423
+    );
+
+    // Then to delete there are two methods;
+
+    // First method
+
+   /*  comment.splice(comment,1);
+    console.table(comments); */
+
+    // Second method
+
+    // slice returns a shallow copy of a part of an array
+
+    // splice removes a part of an array from the original
+
+    // double check this
+
+    const newComments = [
+      ...comments.slice(0,comment),
+      ...comments.slice(comment + 1,comments.length),
+    ];
 
   </script>
 </body>
